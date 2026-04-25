@@ -32,6 +32,6 @@ if prompt := st.chat_input():
     st.chat_message("assistant").write(msg)
 
 with st.sidebar:
-    uploaded_file = st.file_uploader(label="Upload your PDF file", type= "pdf")
+    uploaded_file = st.file_uploader(label="Upload your PDF file", type= "pdf", accept_multiple_files=True)
     if uploaded_file is not None:
         print("File uploaded!!!!!!!!!!!")
