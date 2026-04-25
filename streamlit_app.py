@@ -1,6 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 import os
+from pdf_loader import load_documents_from_storage
 
 st.set_page_config(layout="wide", page_title="OpenRouter chatbot app")
 st.title("OpenRouter chatbot app")
@@ -38,5 +39,6 @@ with st.sidebar:
             save_path = os.path.join(".", uploaded_file.name)
             with open(save_path, "wb") as f:
                 f.write(uploaded_file.getvalue())
-            st.success(f"Saved: {uploaded_file.name}")
+    docs = load_documents_from_storage(".")
+    st.success(f"Loaded {len(docs)} documents from storage.")
     
