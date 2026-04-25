@@ -5,7 +5,7 @@ def load_pdf(file_path):
     doc = fitz.open(file_path)
     text = ""
     for page in doc:
-        text += page.getText()
+        text += page.get_text() + "\n"
     doc.close()
     return text
 
