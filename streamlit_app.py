@@ -31,7 +31,7 @@ if prompt := st.chat_input():
     st.session_state.messages.append({"role": "assistant", "content": msg})
     st.chat_message("assistant").write(msg)
 
-    with st.sidebar:
-        uploaded_file = st.file_uploader(label="Upload your PDF file", type= "pdf")
-        if uploaded_file is not None:
-            print("File uploaded!!!!!!!!!!!")
+with st.sidebar:
+    uploaded_file = st.file_uploader(label="Upload your PDF file", type= "pdf")
+    if uploaded_file is not None:
+        print("File uploaded!!!!!!!!!!!")
