@@ -37,6 +37,6 @@ with st.sidebar:
         for uploaded_file in uploaded_files:
             save_path = os.path.join(".", uploaded_file.name)
             with open(save_path, "wb") as f:
-                f.write(uploaded_file.getValue())
+                f.write(uploaded_file.getvalue())
             st.success(f"Saved: {uploaded_file.name}")
     
