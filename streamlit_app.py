@@ -30,3 +30,6 @@ if prompt := st.chat_input():
     msg = response.choices[0].message.content
     st.session_state.messages.append({"role": "assistant", "content": msg})
     st.chat_message("assistant").write(msg)
+
+    with st.sidebar:
+        st.file_uploader(label="Upload your PDF file", type= "pdf")
