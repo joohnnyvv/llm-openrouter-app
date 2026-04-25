@@ -32,6 +32,11 @@ if prompt := st.chat_input():
     st.chat_message("assistant").write(msg)
 
 with st.sidebar:
-    uploaded_file = st.file_uploader(label="Upload your PDF file", type= "pdf", accept_multiple_files=True)
-    if uploaded_file is not None:
-        print("File uploaded!!!!!!!!!!!")
+    uploaded_files = st.file_uploader(label="Upload your PDF file", type= "pdf", accept_multiple_files=True)
+    if uploaded_files:
+        for uploaded_file in uploaded_files:
+            save_path = os.path.join(".", uploaded_file.name)
+            with open(save_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
+            st.success(f"Saved: {uploaded_file.name}")
+    
